@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WTB</title>
+</head>
+<body>
+{% for ans  in poll %}
+	<h>{{ans.title}}</h>
+	<p>{{ans.vote1 + ans.vote2}}</p>
+{% endfor %}
+
+</body>
+</html>

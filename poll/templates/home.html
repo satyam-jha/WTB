@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WTB</title>
+</head>
+<body>
+{% for blog in blogs %}
+	<a href="{% url 'article' pk=blog.title|slugify %}"><h>{{blog.title}}</h></a>
+	<p>{{blog.content}}</p>
+{% endfor %}
+
+</body>
+</html>
