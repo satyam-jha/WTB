@@ -6,3 +6,6 @@ def home(request):
     poll = question.objects.all()
     context = {'poll': poll}
     return render(request ,'home.html', context= context)
+
+
+    

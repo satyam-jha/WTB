@@ -23,7 +23,8 @@ def edit(request,pk):
         form = Postform(request.POST , instance= blog)
         if form.is_valid() :
             form.save()
-            return redirect('article', pk = pk)
+            link = form.cleaned_data.get("title")
+            return redirect('article', pk = link.replace(' ', '-'))
     context = {'blog': blog,
                 'form' : form} 
 
