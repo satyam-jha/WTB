@@ -5,10 +5,18 @@ from .forms import Postform
 
 def home(request):
     blogs = post.objects.all( )
-    context = { 'blogs': blogs }
+    authors = author.objects.all( )
+    context = { 'blogs': blogs ,
+                'authors': authors , }
     
     return render(request,'home.html',context=context)
 
+
+def author_details(request,pk):
+    authors = author.objects.get(name = pk)
+    context = {'authors':authors}
+
+    return render(request, 'author.html' , context=context)
 
 def article(request,pk):
     blog = post.objects.get(title = pk.replace('-' , ' '))
