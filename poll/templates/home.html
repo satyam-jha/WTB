@@ -1,13 +1,19 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 <html>
 <head>
 	<title>WTB</title>
 </head>
-<body>
-{% for blog in blogs %}
-	<a href="{% url 'article' pk=blog.title|slugify %}"><h>{{blog.title}}</h></a>
-	<p>{{blog.content}}</p>
-{% endfor %}
 
+<body>
+{% block content %}
+	{% for blog in blogs %}
+		<a href="{% url 'article' pk=blog.title|slugify %}"><h>{{blog.title}}</h></a>
+		<p>{{blog.content}}</p>
+	{% endfor %}
+	{% for author in authors %}
+		<h>{{author.name}}</h>
+		<h>{{author.description}}</h>
+	{% endfor %}
+{% endblock  %}
 </body>
 </html>

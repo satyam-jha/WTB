@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 <html>
 
 <head>
 	<title>WTB</title>
 </head>
-
+{% block content %}
 <body>
 	<h1>{{blog.title}}</h1>
 	{% for writer in blog.contributor.all %}
@@ -12,5 +12,5 @@
 	{% endfor %}
 	<a href="{% url 'editpage' pk=blog.title|slugify %}">edit</a>
 </body>
-
+{% endblock %}
 </html>
