@@ -3,7 +3,9 @@
 {% block content %}
 	<h1>{{blog.title}}</h1>
 	{% for writer in blog.contributor.all %}
-		<h1>{{writer.name}}</h1>
+		<a href="{% url 'writer' pk=writer.id %}"><h1>{{writer.name}}</h1></a>
 	{% endfor %}
-	<a href="{% url 'editpage' pk=blog.title|slugify %}">edit</a>
+	{% if user.is_authenticated %}
+		<a href="{% url 'editpage' pk=blog.title|slugify %}">edit</a>
+	{% endif %}
 {% endblock %}
